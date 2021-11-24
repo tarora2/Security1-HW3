@@ -1,5 +1,5 @@
 # Homework 3: Buggiest Web Application
-
+ 
 ## Introduction
 
 Unfortunately it seems your company never learns. Yet again the company
