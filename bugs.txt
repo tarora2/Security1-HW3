@@ -1,0 +1,18 @@
+Github Username - tarora2
+Repo name - Security1-HW3
+UNI - ta2673
+
+Bugs and Fixes
+
+1. SQL Injection
+	a.Bug -  The bug was in the "Use a card" section where the user can modify the gift card to insert an SQL command at the place where there is a signature.
+	b Exploit -  The was I exploited the bug was to use an SQL query at the place of the signature in a gift file.
+	c.Fix - The fix was to use Django inbuild function which can be used with the Card.objects.raw to prevent any SQL Injection attack. The raw method has a paramaeter		     called params which should be used to avoid this attack.
+2. XSS attack
+	a. Bug - The bug is in 2 places - gift.html and item-single.html.
+	b. Exploit - The exploit is doing on a get request of buying a gift card and gifting a gift card - example. 127.0.0.1:8000/buy.html?director=<script>document.write("		hack")</script>
+	c. The fix is done by removing the "|safe" in the paragraph element in the gift.html and itme-single.html files
+3. CSRF attack
+	a. Bug - The bug is in views.py and gift.html file where the gift_card_view and the form are not protected from csrf attacks
+	b. Exploit - While testing I was able to send a gift card to a user without them knowing it.
+	c. Added csrf token at the form and a @csrf_protect at method in views.py
