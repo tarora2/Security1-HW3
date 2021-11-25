@@ -66,16 +66,27 @@ class DjangoTestCase(TestCase):
         res = c2.post('/login', {'uname': 'tujs', 'pword': 'tusss'}, follow=True)
         # print(res.redirect_chain)
         # print(res.context)
-        content = ''
-        check = False
+        content1 = ''
+        content2 = ''
+        check1 = False
+        check2 = False
         with open('LegacySite/newcard.gftcrd', 'rb') as fp:
-            resp = c2.post('/use.html', {'card_supplied': True, 'card_fname': 'fred', 'card_data': fp})
+            resp = c2.post('/use.html', {'card_supplied': True, 'card_fname': 'correctcard', 'card_data': fp})
             print ("Checking the status code: ", resp.status_code)
             content = resp.content
             # print(content)
+
+        with open('LegacySite/newcard2.gftcrd', 'rb') as fp:
+            resp = c2.post('/use.html', {'card_supplied': True, 'card_fname': 'wrongcard', 'card_data': fp})
+            print ("Checking the status code: ", resp.status_code)
+            content2 = resp.content
+
         # checking only a part of the hashed password just to make sure that the test is running
         password = '0000000000000000000000000'
-        if (password in str(content)):
-            check = True
+        if (password in str(content1)):
+            check1 = True
+        if (password in str(content2)):
+            check2 = True
 
-        assert(check == False)
+        assert(check1 == False)
+        assert(check2 == False)
