@@ -32,6 +32,7 @@ sudo apt-get install python3-pip
 sudo apt-get install sqlite3
 sudo pip3 install django
 ```
+
 NOTE: It is better practice doing this within a virtual environment and 
 not use sudo, however, learning virtual environments adds a learning curve that is not part of the class. If you already know how to
 do this, we recommend the virtual environment approach.
